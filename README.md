@@ -18,7 +18,6 @@ Este proyecto presenta una experiencia de mantenimiento clara, elegante y orient
 - Service Worker con estrategia de caché offline.
 - Manifest PWA preparado para instalación.
 - Captura global de errores mediante `window.onerror` y `unhandledrejection`.
-- Enlaces seguros a GitHub e Instagram.
 - HTML semántico y atributos ARIA para mejorar la accesibilidad.
 
 ## Estructura del proyecto
@@ -34,6 +33,7 @@ Este proyecto presenta una experiencia de mantenimiento clara, elegante y orient
 ├── icon-192.svg        # Icono PWA de 192 × 192
 ├── icon-512.svg        # Icono PWA de 512 × 512
 ├── manus-routes.json   # Declaración de rutas para el entorno gestionado
+├── vercel.json         # Configuración de build y cabeceras para Vercel
 ├── package.json        # Scripts de desarrollo y build estático
 └── LICENSE             # Licencia propietaria
 ```
@@ -68,11 +68,39 @@ npm run build
 
 El resultado se generará en `dist/`.
 
-## Publicación
+## Publicación en Vercel
 
-El proyecto puede publicarse en cualquier servidor estático compatible con HTTPS, incluyendo GitHub Pages, Cloudflare Pages, Netlify o Vercel. HTTPS es necesario para que el Service Worker funcione fuera de `localhost`.
+### Importación desde GitHub
 
-Para usar el dominio personalizado `alvarezjose.me`, configura el dominio en el proveedor de hosting y añade los registros DNS solicitados por dicho proveedor.
+1. Sube este proyecto a un repositorio de GitHub.
+2. Accede a [vercel.com/new](https://vercel.com/new).
+3. Pulsa **Continue with GitHub** y autoriza el acceso al repositorio.
+4. Selecciona el repositorio `alvarezjose-status-page`.
+5. Comprueba esta configuración:
+
+```text
+Framework Preset: Other
+Build Command: npm run build
+Output Directory: dist
+Install Command: npm install
+Root Directory: ./
+```
+
+6. Pulsa **Deploy**.
+
+El archivo `vercel.json` ya contiene el build y las cabeceras necesarias para el Service Worker. No necesitas añadir variables de entorno.
+
+### Dominio personalizado
+
+En el proyecto de Vercel, abre **Settings → Domains**, añade:
+
+```text
+alvarezjose.me
+```
+
+Vercel mostrará los registros DNS exactos que debes configurar en tu proveedor de dominio. Normalmente se utiliza un registro `A` para el dominio raíz y un registro `CNAME` para `www`.
+
+Después de verificar el dominio, establece `alvarezjose.me` como dominio principal y activa la redirección de `www` si lo deseas.
 
 ## Redes sociales
 
