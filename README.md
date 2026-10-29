@@ -32,7 +32,7 @@ Este proyecto presenta una experiencia de mantenimiento clara, elegante y orient
 ├── favicon.svg         # Favicon de marca
 ├── icon-192.svg        # Icono PWA de 192 × 192
 ├── icon-512.svg        # Icono PWA de 512 × 512
-├── routes.json   # Declaración de rutas para el entorno gestionado
+├── routes.json         # Declaración de rutas para el entorno gestionado
 ├── vercel.json         # Configuración de build y cabeceras para Vercel
 ├── package.json        # Scripts de desarrollo y build estático
 └── LICENSE             # Licencia propietaria
